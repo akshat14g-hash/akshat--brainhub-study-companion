@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f6f7fb">
+<title>Brainhub — Ultimate Study Companion</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--bg:#f6f7fb;--surface:#fff;--ink:#20243a;--muted:#858ba3;--line:#eceef4;--purple:#7057e8;--purple2:#8c78f4;--soft:#f0edff;--green:#1da77a;--red:#e56b78;--amber:#e6a23c;--shadow:0 12px 36px rgba(36,34,76,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.sidebar{width:252px;background:#fff;border-right:1px solid var(--line);padding:28px 18px;display:flex;flex-direction:column;position:fixed;inset:0 auto 0 0;z-index:5}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 35px;font:800 21px Manrope,sans-serif;letter-spacing:-.7px}.logo{height:37px;width:37px;border-radius:12px;background:linear-gradient(135deg,#927dff,#6047df);display:grid;place-items:center;color:white;font-size:20px;box-shadow:0 6px 14px #806be54a}.brand span:last-child{color:var(--purple)}.nav-label{font-size:10px;letter-spacing:1.4px;font-weight:700;color:#a4a8b8;padding:0 12px 11px}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#777d95;padding:12px;border-radius:11px;text-align:left;display:flex;align-items:center;gap:13px;font-weight:600;font-size:13px}.nav button.active,.nav button:hover{background:var(--soft);color:var(--purple)}.nav .ico{width:19px;text-align:center;font-size:16px}.nav .count{margin-left:auto;font-size:11px;background:#f0f1f6;padding:3px 8px;border-radius:20px;color:#777d95}.sidebar-bottom{margin-top:auto;background:linear-gradient(145deg,#f2efff,#f8f6ff);padding:17px;border-radius:15px}.sidebar-bottom strong{font:700 13px Manrope}.sidebar-bottom p{font-size:11px;color:var(--muted);line-height:1.6;margin:7px 0 12px}.progress-track{height:6px;background:#e5e0fb;border-radius:9px;overflow:hidden}.progress-fill{height:100%;background:var(--purple);border-radius:9px;width:0;transition:width .25s}.progress-caption{display:flex;justify-content:space-between;font-size:10px;color:#77718f;margin-top:8px}.main{margin-left:252px;width:calc(100% - 252px);padding:30px 4.5vw 55px;max-width:1600px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.eyebrow{font-size:11px;color:var(--muted);margin-bottom:6px}.greeting{font:800 25px Manrope;letter-spacing:-.8px}.greeting span{color:var(--purple)}.top-actions{display:flex;align-items:center;gap:12px}.date-pill{font-size:12px;color:#777d95;background:#fff;border:1px solid var(--line);padding:10px 14px;border-radius:10px}.avatar{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;background:#e9e4ff;color:#6047df;font-weight:700}.welcome{background:linear-gradient(110deg,#6b54df,#927df3);border-radius:18px;padding:25px 28px;color:#fff;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative;box-shadow:0 12px 28px #725be52b}.welcome:after{content:"✦";position:absolute;font-size:150px;right:22%;top:-62px;color:#ffffff12}.welcome h2{font:800 20px Manrope;margin:0 0 7px}.welcome p{font-size:12px;color:#e8e3ff;margin:0}.welcome-art{font-size:46px;z-index:1;margin-right:20px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:22px 0 27px}.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:17px 19px;display:flex;align-items:center;gap:13px;box-shadow:0 4px 15px #24244a05}.stat-icon{height:39px;width:39px;border-radius:12px;display:grid;place-items:center;font-size:17px}.stat:nth-child(1) .stat-icon{background:#f0edff;color:#7259e8}.stat:nth-child(2) .stat-icon{background:#e8f8f1;color:#1da77a}.stat:nth-child(3) .stat-icon{background:#fff4e4;color:#df9a32}.stat-num{font:800 21px Manrope}.stat-label{font-size:11px;color:var(--muted);margin-top:2px}.content-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.content-head h2{font:800 18px Manrope;margin:0}.content-head p{font-size:11px;color:var(--muted);margin:5px 0 0}.primary{border:0;border-radius:10px;background:var(--purple);color:#fff;padding:11px 16px;font-size:12px;font-weight:700;box-shadow:0 6px 14px #7057e833}.primary:hover{background:#6047d7;transform:translateY(-1px)}.toolbar{display:flex;justify-content:space-between;gap:12px;margin-bottom:13px;flex-wrap:wrap}.filters{display:flex;gap:5px;background:#eeeff5;padding:4px;border-radius:10px}.filters button{border:0;background:transparent;color:#858ba3;padding:8px 13px;border-radius:7px;font-size:11px;font-weight:600}.filters button.active{background:#fff;color:var(--purple);box-shadow:0 2px 7px #24244a0c}.search{position:relative}.search input{width:220px;padding:10px 13px 10px 34px;border:1px solid var(--line);border-radius:9px;background:#fff;outline:none;font-size:11px}.search:before{content:"⌕";position:absolute;left:12px;top:5px;font-size:21px;color:#9298ad}.search input:focus,.field input:focus,.field select:focus,.field textarea:focus{border-color:#a99bf5;box-shadow:0 0 0 3px #7057e814}.task-list{display:grid;gap:9px}.task{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 16px;display:flex;align-items:center;gap:13px;transition:.2s;box-shadow:0 3px 12px #24244a04}.task:hover{border-color:#dcd6fb;box-shadow:var(--shadow)}.check{width:19px;height:19px;border:1.7px solid #cdd0dc;border-radius:6px;flex:none;display:grid;place-items:center;background:#fff;color:white;padding:0}.check.done{background:var(--green);border-color:var(--green)}.check.done:after{content:"✓";font-size:12px}.task-info{min-width:0;flex:1}.task-title{font-weight:700;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.task-desc{font-size:10px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.task.completed .task-title{text-decoration:line-through;color:#a6aabb}.task-meta{display:flex;align-items:center;gap:10px}.tag{font-size:9px;font-weight:700;padding:5px 8px;border-radius:6px;background:#f2f3f7;color:#777d95}.tag.high{background:#fff0f0;color:#d86c76}.tag.medium{background:#fff6e8;color:#c48a32}.tag.low{background:#eaf8f2;color:#24936e}.due{font-size:10px;color:#8b90a4;white-space:nowrap}.due.overdue{color:var(--red)}.task-actions{display:flex;gap:3px;opacity:.45}.task:hover .task-actions{opacity:1}.icon-btn{border:0;background:transparent;color:#858ba3;padding:6px;border-radius:7px;font-size:14px}.icon-btn:hover{background:#f1efff;color:var(--purple)}.empty{background:#fff;border:1px dashed #dfe1eb;border-radius:14px;text-align:center;padding:48px 15px;color:var(--muted)}.empty .empty-icon{font-size:31px;margin-bottom:9px}.empty strong{display:block;color:var(--ink);font-size:13px}.empty p{font-size:11px}.footer-note{text-align:center;color:#a3a7b6;font-size:10px;margin-top:25px}.modal-backdrop{position:fixed;inset:0;background:#20203970;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal-backdrop.show{display:flex}.modal{background:#fff;width:min(460px,100%);border-radius:18px;padding:24px;box-shadow:0 25px 80px #15132e38}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.modal-head h3{font:800 18px Manrope;margin:0}.close{border:0;background:#f3f3f8;border-radius:8px;width:30px;height:30px;color:#777}.field{display:grid;gap:6px;margin-bottom:13px}.field label{font-size:11px;font-weight:700;color:#656b81}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 11px;outline:none;font-size:12px;color:var(--ink);background:#fff}.field textarea{resize:vertical;min-height:68px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.secondary{border:1px solid var(--line);background:#fff;color:#777d95;border-radius:9px;padding:10px 15px;font-size:12px;font-weight:600}.toast{position:fixed;bottom:22px;right:22px;background:#25243b;color:white;padding:12px 17px;border-radius:10px;font-size:12px;box-shadow:var(--shadow);opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;z-index:20}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:850px){.sidebar{width:70px;padding:22px 10px}.brand{padding:0 6px 32px}.brand-name,.nav-label,.nav button .nav-text,.nav .count,.sidebar-bottom{display:none}.nav button{justify-content:center;padding:13px}.main{margin-left:70px;width:calc(100% - 70px);padding:25px 4vw}.nav .ico{font-size:19px}.stats{gap:9px}.stat{padding:13px 11px;gap:8px}.stat-icon{width:32px;height:32px}.stat-num{font-size:18px}}
+@media(max-width:560px){.main{padding:20px 15px}.topbar{margin-bottom:20px}.greeting{font-size:21px}.date-pill{display:none}.welcome{padding:20px}.welcome h2{font-size:17px}.welcome-art{font-size:34px;margin:0}.stats{grid-template-columns:1fr 1fr}.stat:last-child{display:none}.content-head{align-items:flex-start}.content-head h2{font-size:16px}.primary{padding:10px 12px}.toolbar{align-items:stretch}.filters{width:100%;justify-content:space-between}.filters button{padding:8px 10px}.search,.search input{width:100%}.task{gap:9px;padding:12px}.task-meta{gap:5px}.due{display:none}.task-actions{opacity:1}.tag{font-size:8px;padding:4px 6px}.form-row{grid-template-columns:1fr}.task-desc{max-width:180px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">✦</div><span class="brand-name">brain<span>hub.</span></span></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav">
+    <button class="active" data-filter="all"><span class="ico">▦</span><span class="nav-text">All tasks</span><span class="count" id="allCount">0</span></button>
+    <button data-filter="today"><span class="ico">◷</span><span class="nav-text">Today</span></button>
+    <button data-filter="pending"><span class="ico">◉</span><span class="nav-text">Upcoming</span></button>
+    <button data-filter="completed"><span class="ico">✓</span><span class="nav-text">Completed</span></button>
+  </nav>
+  <div class="sidebar-bottom"><strong>Keep your momentum ✨</strong><p>Small steps every day lead to big results. You're doing great!</p><div class="progress-track"><div class="progress-fill" id="sideProgress"></div></div><div class="progress-caption"><span>Daily progress</span><b id="sidePercent">0%</b></div></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div><div class="eyebrow" id="todayLabel">YOUR PERSONAL STUDY SPACE</div><div class="greeting">Let's make today <span>count.</span></div></div><div class="top-actions"><div class="date-pill" id="datePill"></div><div class="avatar">B</div></div></header>
+  <section class="welcome"><div><h2>Focus on what matters most.</h2><p>Your goals are within reach. One task at a time.</p></div><div class="welcome-art">📚</div></section>
+  <section class="stats">
+    <div class="stat"><div class="stat-icon">✧</div><div><div class="stat-num" id="totalStat">0</div><div class="stat-label">Total tasks</div></div></div>
+    <div class="stat"><div class="stat-icon">✓</div><div><div class="stat-num" id="doneStat">0</div><div class="stat-label">Tasks completed</div></div></div>
+    <div class="stat"><div class="stat-icon">◷</div><div><div class="stat-num" id="pendingStat">0</div><div class="stat-label">Still in progress</div></div></div>
+  </section>
+  <section>
+    <div class="content-head"><div><h2 id="listHeading">My tasks</h2><p>Plan it. Do it. Check it off.</p></div><button class="primary" id="addTaskBtn">＋ Add new task</button></div>
+    <div class="toolbar"><div class="filters" id="filters"><button class="active" data-filter="all">All</button><button data-filter="pending">Pending</button><button data-filter="completed">Completed</button></div><div class="search"><input id="searchInput" type="search" placeholder="Search your tasks..."></div></div>
+    <div class="task-list" id="taskList"></div>
+  </section>
+  <div class="footer-note">Made for your goals, powered by Brainhub ✦ &nbsp;·&nbsp; Your tasks stay saved on this device</div>
+</main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop">
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-head"><h3 id="modalTitle">Create a task</h3><button class="close" id="closeModal" aria-label="Close">✕</button></div>
+  <form id="taskForm">
+   <div class="field"><label for="taskTitle">Task name *</label><input id="taskTitle" maxlength="90" placeholder="e.g. Review biology chapter 4" required></div>
+   <div class="field"><label for="taskDescription">Description</label><textarea id="taskDescription" maxlength="240" placeholder="Add a few details (optional)"></textarea></div>
+   <div class="form-row"><div class="field"><label for="taskDate">Due date</label><input type="date" id="taskDate"></div><div class="field"><label for="taskPriority">Priority</label><select id="taskPriority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></div></div>
+   <div class="modal-actions"><button type="button" class="secondary" id="cancelModal">Cancel</button><button class="primary" type="submit" id="saveTaskBtn">Save task</button></div>
+  </form>
+ </div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+(() => {
+ const KEY='brainhub_tasks_v1';
+ let tasks=[];
+ try{tasks=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(tasks))tasks=[];}catch{tasks=[];}
+ let activeFilter='all',editingId=null;
+ const $=id=>document.getElementById(id);
+ const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const save=()=>localStorage.setItem(KEY,JSON.stringify(tasks));
+ const toast=msg=>{const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),2200)};
+ const dateLabel=s=>{if(!s)return 'No due date';const d=new Date(s+'T00:00:00');return d.toLocaleDateString(undefined,{month:'short',day:'numeric'})};
+ function render(){
+  const done=tasks.filter(t=>t.completed).length,pending=tasks.length-done;
+  $('totalStat').textContent=tasks.length;$('doneStat').textContent=done;$('pendingStat').textContent=pending;$('allCount').textContent=tasks.length;
+  const pct=tasks.length?Math.round(done/tasks.length*100):0;$('sideProgress').style.width=pct+'%';$('sidePercent').textContent=pct+'%';
+  const q=$('searchInput').value.trim().toLowerCase();
+  let list=tasks.filter(t=>(t.title+' '+t.description).toLowerCase().includes(q));
+  if(activeFilter==='today')list=list.filter(t=>t.dueDate===today()&&!t.completed);
+  else if(activeFilter==='pending')list=list.filter(t=>!t.completed);
+  else if(activeFilter==='completed')list=list.filter(t=>t.completed);
+  list.sort((a,b)=>Number(a.completed)-Number(b.completed)||(a.dueDate||'9999').localeCompare(b.dueDate||'9999')||b.createdAt-a.createdAt);
+  $('listHeading').textContent=({all:'My tasks',today:"Today's tasks",pending:'Upcoming tasks',completed:'Completed tasks'})[activeFilter];
+  $('taskList').innerHTML=list.length?list.map(t=>`<article class="task ${t.completed?'completed':''}" data-id="${esc(t.id)}">
+    <button class="check ${t.completed?'done':''}" data-action="toggle" aria-label="${t.completed?'Mark as pending':'Mark as completed'}"></button>
+    <div class="task-info"><div class="task-title">${esc(t.title)}</div>${t.description?`<div class="task-desc">${esc(t.description)}</div>`:''}</div>
+    <div class="task-meta"><span class="tag ${esc(t.priority)}">${esc(t.priority[0].toUpperCase()+t.priority.slice(1))}</span><span class="due ${t.dueDate&&t.dueDate<today()&&!t.completed?'overdue':''}">${t.dueDate&&t.dueDate<today()&&!t.completed?'Overdue · ':''}${esc(dateLabel(t.dueDate))}</span></div>
+    <div class="task-actions"><button class="icon-btn" data-action="edit" title="Edit task" aria-label="Edit task">✎</button><button class="icon-btn" data-action="delete" title="Delete task" aria-label="Delete task">⌫</button></div>
+   </article>`).join(''):`<div class="empty"><div class="empty-icon">${q?'⌕':'✦'}</div><strong>${q?'No matching tasks':'Nothing here just yet'}</strong><p>${q?'Try another search term.':'Add a task and make your next step happen.'}</p></div>`;
+  document.querySelectorAll('.nav button,.filters button').forEach(b=>b.classList.toggle('active',b.dataset.filter===activeFilter));
+ }
+ function openModal(task=null){
+  editingId=task?.id??null;$('modalTitle').textContent=task?'Edit task':'Create a task';$('saveTaskBtn').textContent=task?'Save changes':'Save task';
+  $('taskTitle').value=task?.title||'';$('taskDescription').value=task?.description||'';$('taskDate').value=task?.dueDate||'';$('taskPriority').value=task?.priority||'medium';
+  $('modalBackdrop').classList.add('show');setTimeout(()=>$('taskTitle').focus(),50);
+ }
+ function closeModal(){$('modalBackdrop').classList.remove('show');$('taskForm').reset();editingId=null}
+ $('addTaskBtn').addEventListener('click',()=>openModal());
+ $('closeModal').addEventListener('click',closeModal);$('cancelModal').addEventListener('click',closeModal);
+ $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+ $('taskForm').addEventListener('submit',e=>{
+  e.preventDefault();const title=$('taskTitle').value.trim();if(!title)return;
+  const data={title,description:$('taskDescription').value.trim(),dueDate:$('taskDate').value,priority:$('taskPriority').value};
+  if(editingId){tasks=tasks.map(t=>t.id===editingId?{...t,...data}:t);toast('Task updated successfully');}
+  else{tasks.unshift({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),...data,completed:false,createdAt:Date.now()});toast('New task added');}
+  save();closeModal();render();
+ });
+ function setFilter(f){activeFilter=f;render()}
+ document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
+ $('searchInput').addEventListener('input',render);
+ $('taskList').addEventListener('click',e=>{
+  const btn=e.target.closest('[data-action]');if(!btn)return;const card=btn.closest('.task'),id=card.dataset.id,task=tasks.find(t=>t.id===id);if(!task)return;
+  if(btn.dataset.action==='toggle'){task.completed=!task.completed;save();render();toast(task.completed?'Task completed — nice work!':'Task moved back to pending');}
+  if(btn.dataset.action==='edit')openModal(task);
+  if(btn.dataset.action==='delete'){if(confirm(`Delete "${task.title}"?`)){tasks=tasks.filter(t=>t.id!==id);save();render();toast('Task deleted');}}
+ });
+ $('datePill').textContent=new Date().toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+ $('todayLabel').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'}).toUpperCase();
+ render();
+})();
+</script>
+</body>
+</html>
